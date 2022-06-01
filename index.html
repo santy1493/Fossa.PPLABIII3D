@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./scripts/app.js" defer type="module"></script>
+    <link rel="stylesheet" href="estilos.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="https://image.shutterstock.com/image-photo/stock-vector-vector-layout-of-the-muscle-car-logo-chevrolet-camaro-450w-2154047265.jpg" alt="logo" class="logo">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#anuncios">Anuncios</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="titulo">
+            <h2>Administracion</h2>
+            <img src="http://1.bp.blogspot.com/-ru271WcoGlA/W5AylT8BbzI/AAAAAAAAHO8/BiIFaD3Hmb8xr_s2mmdO4haxkwzImaQtACK4BGAYYCw/s1600/banner%2Bsp1.jpg" alt="banner" class="banner">
+        </div>
+        <main class="main" id="anuncios">
+            <section class="form-container">
+                <form action="">
+                    <fieldset class="anuncio">
+                        <legend>Informacion del Anuncio</legend>
+                        <label for="titulo">TITULO:</label>
+                        <br>
+                        <input type="text" name="titulo" placeholder="Titulo" autocomplete="off" class="inputLargo" required>
+                        <br>
+                        <label for="transaccion">TRANSACCION:</label>
+                        <br>
+                        <input type="radio" name="transaccion" value="venta" checked>Venta
+                        <input type="radio" name="transaccion" value="alquiler">Alquiler
+                            <br>
+                        <label for="descripcion">DESCRIPCION:</label>
+                        <br>
+                        <input type="text" name="descripcion" placeholder="Descripcion" autocomplete="off" class="inputLargo" required>
+                        <br>
+                        <label for="precio">PRECIO:</label>
+                        <br>
+                        <input type="number" name="precio" placeholder="Precio" autocomplete="off" class="inputLargo" required>
+                        <br>
+                        <label for="puertas">PUERTAS:</label>
+                        <input type="number" name="puertas" placeholder="Puertas" autocomplete="off" class="inputCorto" required>
+                        <label for="kms">KMs:</label>
+                        <input type="number" name="kms" placeholder="KMs" autocomplete="off" class="inputCorto" required>
+                        <label for="potencia">POTENCIA:</label>
+                        <input type="number" name="potencia" placeholder="Potencia" autocomplete="off" class="inputCorto" required>
+                        <br>
+                    </fieldset>
+                    <input type="hidden" name="id" >
+                        <input type="submit" id="altaAuto" value="Guardar">
+                        <input type="button" id="modificarAuto" value="Modificar auto">
+                        <input type="button" id="bajaAuto" value="Baja auto">
+                        <input type="button" id="cancelar" value="Cancelar">
+                </form>
+            </section>
+            <section class="table-container"></section>
+            <img src="https://thumbs.gfycat.com/RipeAnnualAmericanrobin-size_restricted.gif" alt="spinner" id="spinner">
+
+            
+        </main>
+    </div>
+    <footer>
+        <nav>
+            <ul class="navfooter">
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#anuncios">Anuncios</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

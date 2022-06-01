@@ -1,0 +1,107 @@
+td, th {
+    border: 1px solid black;
+}
+header nav{
+    text-align: right;
+    display:inline-block;
+    width: 87%;
+}
+li{
+    list-style:none;
+}
+a{
+    text-decoration: none;
+}
+
+th {
+    background-color: darkkhaki;
+}
+table {
+    border-collapse: collapse;
+}
+
+/*.oscuro {
+    background-color: darkgray;
+}
+.claro {
+    background-color: white;
+}*/
+
+tr:hover {
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+}
+
+form {
+    width: 50%;
+    margin: auto;
+}
+
+.header {
+
+    height: 120px;
+    background-color: cornflowerblue;
+    display: flex;
+}
+.logo {
+    width: 150px;
+}
+.navbar {
+    float: right;
+
+}
+.titulo {
+    text-align: center;
+}
+.banner {
+    width: 100%;
+}
+.anuncio {
+    height: 300px;
+}
+input {
+    margin-bottom: 25px;
+}
+.inputLargo {
+    width: 100%;
+}
+.inputCorto {
+    width: 20%;
+}
+
+table {
+    margin: auto;
+    width: 40%;
+}
+#altaAuto{
+    background-color:chartreuse;
+}
+#spinner {
+    width: 100px;
+    margin: auto;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 250px;
+    height: 300px;
+  }
+
+  footer {
+
+    height: 120px;
+    background-color: cornflowerblue;
+    display: flex;
+    margin-top: 400px;
+}
+
+.navfooter{
+    display: flex;
+    
+}
+.navfooter li{
+    margin: 0 20px;
+
+}
+  
