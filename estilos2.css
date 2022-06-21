@@ -79,6 +79,7 @@ table {
 }
 #spinner {
     width: 100px;
+    align-self:center;
     margin: auto;
 }
 .card {
@@ -86,9 +87,10 @@ table {
     border: 2px solid;
     transition: 0.3s;
     width: 600px;
-    height: 250px;
+    height: 270px;
     margin: 20px auto;
-    background-color: white;
+    background-color: aliceblue;
+    padding: 0 15px;
 
   }
 
@@ -106,6 +108,7 @@ table {
       background-color: darkorange;
       color: white;
       font-weight: bold;
+      border-color: darkorange;
   }
 
   li {
@@ -113,7 +116,18 @@ table {
   }
 
 body {
-    background-image: url("https://neomotor.sport.es/media/2020/08/cinerataques-a-concesionarios.jpg");
+    background-image: url("./media/backgroundImage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+
+  .scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 85vh;
+    width: 650px;
+    margin: 0 auto;
   }
   
   

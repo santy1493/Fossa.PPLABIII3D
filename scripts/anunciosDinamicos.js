@@ -8,6 +8,7 @@ function crearAnuncios(vec){
 function crearCuerpo(vec){
     
     const listaAnuncios = document.createElement('div');
+    listaAnuncios.setAttribute('class', 'scroll');
 
     vec.forEach((elemento) => {
         const card = document.createElement('div');
@@ -16,27 +17,53 @@ function crearCuerpo(vec){
         const titulo = document.createElement('h2');
         titulo.textContent = elemento['titulo'];
 
-        const descripcion = document.createElement('h4');
+        const descripcion = document.createElement('h3');
         descripcion.textContent = elemento['descripcion'];
 
-
         const precio = document.createElement('h4');
-        precio.textContent = elemento['precio'];
+        precio.style.color = 'limegreen';
+        precio.textContent = '$' + elemento['precio'];
 
         const ul = document.createElement('ul');
         ul.setAttribute('class', 'caracteristicas');
 
         const puertas = document.createElement('li');
         puertas.setAttribute('class', 'inline');
-        puertas.textContent = 'Puertas: '+  elemento['puertas'];
+        const divPuertas = document.createElement('div');
+        const imgPuertas = document.createElement('img');
+        imgPuertas.setAttribute('src', './media/icon/anuncioPuerta.png');
+        imgPuertas.style.width = '50px';
+        const labelPuertas = document.createElement('label');
+        labelPuertas.style.marginLeft = '10px';
+        labelPuertas.textContent = elemento['puertas'];
+        divPuertas.appendChild(imgPuertas);
+        divPuertas.appendChild(labelPuertas);
+        puertas.appendChild(divPuertas);
 
         const kms = document.createElement('li');
         kms.setAttribute('class', 'inline');
-        kms.textContent = 'KMs: ' + elemento['kms'];
+        const divKms = document.createElement('div');
+        const imgKms = document.createElement('img');
+        imgKms.setAttribute('src', './media/icon/anuncioVelocimento.png');
+        imgKms.style.width = '50px';
+        const labelKms = document.createElement('label');
+        labelKms.textContent = elemento['kms'];
+        divKms.appendChild(imgKms);
+        divKms.appendChild(labelKms);
+        kms.appendChild(divKms);
 
         const potencia = document.createElement('li');
         potencia.setAttribute('class', 'inline');
-        potencia.textContent = 'Potencia: ' + elemento['potencia'];
+        const divPotencia = document.createElement('div');
+        const imgPotencia = document.createElement('img');
+        imgPotencia.setAttribute('src', './media/icon/anuncioMotor.png');
+        imgPotencia.style.width = '70px';
+        imgPotencia.style.height = '50px';
+        const labelPotencia = document.createElement('label');
+        labelPotencia.textContent = elemento['potencia'];
+        divPotencia.appendChild(imgPotencia);
+        divPotencia.appendChild(labelPotencia);
+        potencia.appendChild(divPotencia);
 
         ul.appendChild(puertas);
         ul.appendChild(kms);

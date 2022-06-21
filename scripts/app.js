@@ -11,6 +11,8 @@ actualizarTabla(autos);
 console.log(autos);
 
 const $frmAuto = document.forms[0];
+const $checkBoxes = document.querySelectorAll('input[type=checkbox]');
+console.log($checkBoxes);
 
 const $btnBaja = document.getElementById('bajaAuto');
 const $btnModificar = document.getElementById('modificarAuto');
@@ -50,17 +52,24 @@ $frmAuto.addEventListener('submit', (e)=>{
         frm.puertas.value,
         frm.kms.value,
         frm.potencia.value
+
     );
 
+    VerificarCheckbox(nuevoAuto);
+
     console.log(nuevoAuto);
+
+
     
     autos.push(nuevoAuto);
     localStorage.setItem('autos', JSON.stringify(autos));
+    Swal.fire('Anuncio creado!','Se creo con exito el anuncio','success');
     actualizarTabla(autos);
+    $frmAuto.reset();
 
 })
 
-function eliminarEmpleado() {
+function eliminarAnuncio() {
 
     if(idSeleccionado != 0) {
         
@@ -71,14 +80,16 @@ function eliminarEmpleado() {
         });
     
         localStorage.setItem('autos', JSON.stringify(autos));
+        Swal.fire('Anuncio eliminado!','Se elimino con exito el anuncio','error');
         actualizarTabla(autos);
         idSeleccionado = 0;
         esconderBotones();
+        $frmAuto.reset();
     }
     
 }
 
-function modificarEmpleado() {
+function modificarAnuncio() {
 
     if(idAModificar == 0) {
         if(idSeleccionado != 0) {
@@ -94,6 +105,9 @@ function modificarEmpleado() {
                     $frmAuto.puertas.value = elemento['puertas'];
                     $frmAuto.kms.value = elemento['kms'];
                     $frmAuto.potencia.value = elemento['potencia'];
+
+                   // VerificarCheckboxModificar(elemento);
+                   VerificarAccesorios(elemento);
                 }
             });
         }
@@ -110,6 +124,8 @@ function modificarEmpleado() {
                 elemento['puertas'] = $frmAuto.puertas.value;
                 elemento['kms'] = $frmAuto.kms.value;
                 elemento['potencia'] = $frmAuto.potencia.value;
+
+                VerificarCheckbox(elemento);
             }
         });
 
@@ -119,6 +135,8 @@ function modificarEmpleado() {
         esconderBotones();
         localStorage.setItem('autos', JSON.stringify(autos));
         actualizarTabla(autos);
+        Swal.fire('Anuncio modificado!','Se modifico con exito el anuncio','info');
+        $frmAuto.reset();
     }
     
     
@@ -133,13 +151,14 @@ window.addEventListener('click', (e) => {
         mostrarBotones();
     }
     else if(e.target.matches('#bajaAuto')) {
-        eliminarEmpleado(idSeleccionado);
+        eliminarAnuncio(idSeleccionado);
     }
     else if(e.target.matches('#modificarAuto')) {
-        modificarEmpleado(idSeleccionado);
+        modificarAnuncio(idSeleccionado);
     }
     else if(e.target.matches('#cancelar')) {
         esconderBotones();
+        $frmAuto.reset();
     }
 
 });
@@ -161,5 +180,70 @@ function actualizarTabla(vec) {
     }
     if(vec.length>0){
         container.appendChild(crearTabla(vec));
+    }
+}
+
+function VerificarCheckbox(auto) {
+
+    auto.alarma = false;
+    auto.abs = false;
+    auto.aire = false;
+    auto.cristales = false;
+
+    for(let i=0;i<$checkBoxes.length;i++) {
+        if($checkBoxes[i].value == 'alarma' && $checkBoxes[i].checked) {
+            auto.alarma = true;
+        }
+        else if($checkBoxes[i].value == 'abs' && $checkBoxes[i].checked) {
+            auto.abs = true;
+        }
+        else if($checkBoxes[i].value == 'aire' && $checkBoxes[i].checked) {
+            auto.aire = true;
+        }
+        else if($checkBoxes[i].value == 'cristales' && $checkBoxes[i].checked) {
+            auto.cristales = true;
+        }
+    }
+
+}
+
+/*function VerificarCheckboxModificar(auto) {
+
+    for(let i=0;i<$checkBoxes.length;i++) {
+        if($checkBoxes[i].value == 'alarma' && $checkBoxes[i].checked) {
+            auto['alarma'] = true;
+        }
+        else if($checkBoxes[i].value == 'abs' && $checkBoxes[i].checked) {
+            auto['abs'] = true;
+        }
+        else if($checkBoxes[i].value == 'aire' && $checkBoxes[i].checked) {
+            auto['aire'] = true;
+        }
+        else if($checkBoxes[i].value == 'cristales' && $checkBoxes[i].checked) {
+            auto['cristales'] = true;
+        }
+    }
+
+}*/
+
+function VerificarAccesorios(auto) {
+
+    for(let i=0;i<$checkBoxes.length;i++) {
+        $checkBoxes[i].checked = false;
+    }
+
+    for(let i=0;i<$checkBoxes.length;i++) {
+        if($checkBoxes[i].value == 'alarma' && auto.alarma) {
+            $checkBoxes[i].checked = true;
+        }
+        else if($checkBoxes[i].value == 'abs' && auto.abs) {
+            $checkBoxes[i].checked = true;
+        }
+        else if($checkBoxes[i].value == 'aire' && auto.aire) {
+            $checkBoxes[i].checked = true;
+        }
+        else if($checkBoxes[i].value == 'cristales' && auto.cristales) {
+            $checkBoxes[i].checked = true;
+        }
     }
 }

@@ -32,7 +32,15 @@ function crearCuerpo(vec){
         for(const key in elemento) {
             if(key!=='id'){
                 const td = document.createElement('td');
-                td.textContent = elemento[key];
+                if(elemento[key]===true) {
+                    td.textContent = 'si';
+                }
+                else if(elemento[key]===false) {
+                    td.textContent = 'no';
+                }
+                else {
+                    td.textContent = elemento[key];
+                }
                 tr.appendChild(td);
             } else {
                 tr.setAttribute('data-id', elemento[key]);

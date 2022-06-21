@@ -58,28 +58,30 @@ form {
     width: 100%;
 }
 .anuncio {
-    height: 300px;
+    height: 580px;
+    min-width: 600px;
 }
 input {
     margin-bottom: 25px;
 }
 .inputLargo {
-    width: 100%;
+    width: 98%;
 }
 .inputCorto {
-    width: 20%;
+    width: 12%;
 }
 
 table {
     margin: auto;
-    width: 40%;
+    width: 60%;
 }
 #altaAuto{
     background-color:chartreuse;
 }
 #spinner {
+
     width: 100px;
-    margin: auto;
+    margin: 0 auto;
 }
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -88,7 +90,7 @@ table {
     height: 300px;
   }
 
-  footer {
+footer {
 
     height: 120px;
     background-color: cornflowerblue;
@@ -104,4 +106,15 @@ table {
     margin: 0 20px;
 
 }
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 600px) {
+    .banner {
+        display: none;
+    }
+  }
   

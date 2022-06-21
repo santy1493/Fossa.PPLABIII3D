@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./scripts/app.js" defer type="module"></script>
     <link rel="stylesheet" href="estilos.css">
     <title>Document</title>
@@ -11,11 +12,11 @@
 <body>
     <div class="container">
         <header class="header">
-            <img src="https://image.shutterstock.com/image-photo/stock-vector-vector-layout-of-the-muscle-car-logo-chevrolet-camaro-450w-2154047265.jpg" alt="logo" class="logo">
+            <img src="./media/logo.jpg" alt="logo" class="logo">
             <nav class="navbar">
                 <ul>
                     <li><a href="#">Nosotros</a></li>
-                    <li><a href="#anuncios">Anuncios</a></li>
+                    <li><a href="./anuncios.html">Anuncios</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Contacto</a></li>
                 </ul>
@@ -23,37 +24,51 @@
         </header>
         <div class="titulo">
             <h2>Administracion</h2>
-            <img src="http://1.bp.blogspot.com/-ru271WcoGlA/W5AylT8BbzI/AAAAAAAAHO8/BiIFaD3Hmb8xr_s2mmdO4haxkwzImaQtACK4BGAYYCw/s1600/banner%2Bsp1.jpg" alt="banner" class="banner">
+            <img src="./media/banner.jpg" alt="banner" class="banner">
         </div>
         <main class="main" id="anuncios">
             <section class="form-container">
                 <form action="">
                     <fieldset class="anuncio">
                         <legend>Informacion del Anuncio</legend>
+                        <img src="./media/icon/title.png" alt="titulo">
                         <label for="titulo">TITULO:</label>
                         <br>
                         <input type="text" name="titulo" placeholder="Titulo" autocomplete="off" class="inputLargo" required>
                         <br>
+                        <img src="./media/icon/transaction.png" alt="transaccion">
                         <label for="transaccion">TRANSACCION:</label>
                         <br>
                         <input type="radio" name="transaccion" value="venta" checked>Venta
                         <input type="radio" name="transaccion" value="alquiler">Alquiler
                             <br>
+                        <img src="./media/icon/description.png" alt="descripcion">
                         <label for="descripcion">DESCRIPCION:</label>
                         <br>
                         <input type="text" name="descripcion" placeholder="Descripcion" autocomplete="off" class="inputLargo" required>
                         <br>
+                        <img src="./media/icon/money.png" alt="precio">
                         <label for="precio">PRECIO:</label>
                         <br>
                         <input type="number" name="precio" placeholder="Precio" autocomplete="off" class="inputLargo" required>
                         <br>
+                        <img src="./media/icon/car-door.png" alt="puertas">
                         <label for="puertas">PUERTAS:</label>
-                        <input type="number" name="puertas" placeholder="Puertas" autocomplete="off" class="inputCorto" required>
+                        <input type="number" name="puertas" placeholder="Puertas" autocomplete="off" class="inputCorto" min="2" max="6" required>
+                        <img src="./media/icon/speedometer.png" alt="kms" style="margin-left: 20px;">
                         <label for="kms">KMs:</label>
-                        <input type="number" name="kms" placeholder="KMs" autocomplete="off" class="inputCorto" required>
+                        <input type="number" name="kms" placeholder="KMs" autocomplete="off" class="inputCorto" min="0" max="999999" required>
+                        <img src="./media/icon/car-engine.png" alt="potencia" style="margin-left: 2/media0px;">
                         <label for="potencia">POTENCIA:</label>
-                        <input type="number" name="potencia" placeholder="Potencia" autocomplete="off" class="inputCorto" required>
+                        <input type="number" name="potencia" placeholder="Potencia" autocomplete="off" class="inputCorto" min="50" max="1000" required>
                         <br>
+                        <fieldset>
+                            <legend>Accesorios</legend>
+                            <label><input type="checkbox" id="alarma" value="alarma"> Alarma</label><br>
+                            <label><input type="checkbox" id="abs" value="abs"> Frenos ABS</label><br>
+                            <label><input type="checkbox" id="aire" value="aire"> Aire Acondicionado</label><br>
+                            <label><input type="checkbox" id="cristales" value="cristales"> Cristales Electricos</label><br>
+                        </fieldset>
                     </fieldset>
                     <input type="hidden" name="id" >
                         <input type="submit" id="altaAuto" value="Guardar">
@@ -63,7 +78,8 @@
                 </form>
             </section>
             <section class="table-container"></section>
-            <img src="https://thumbs.gfycat.com/RipeAnnualAmericanrobin-size_restricted.gif" alt="spinner" id="spinner">
+            
+            <img src="./media/spinner.gif" alt="spinner" id="spinner">
 
             
         </main>
